@@ -4,6 +4,8 @@ angular.module('mean.contacts')
   .controller('ContactsController', ['$scope', '$location', '$stateParams', 'Contact', 'Global',
     function ($scope, $location, $stateParams, Contact, Global) {
 
+      var crs = new Crs();
+      
       var getContacts = function () {
         Contact.query(function (contacts) {
           $scope.contacts = contacts;
@@ -57,6 +59,7 @@ angular.module('mean.contacts')
         if ($stateParams.contactId) {
           getContact();
         }
+        crs.init();
       };
 
       $scope.saveContact = function (contact) {

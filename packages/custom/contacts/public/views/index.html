@@ -1,5 +1,9 @@
 <section data-ng-hide="global.authenticated">
-  <a href="/#!/auth/register" class="btn btn-large btn-primary">Sign Up!</a> or <a href="/#!/auth/login" class="btn btn-large btn-primary">Log In!</a>
+  <div class="jumbotron">
+    <h1>Address Book</h1>
+    <p>You too can keep track of your contacts.</p>
+    <a href="/#!/auth/register" class="btn btn-large btn-primary">Sign Up</a> or <a href="/#!/auth/login" class="btn btn-large btn-default">Log In</a>
+  </div>
 </section>
 <section data-ng-show="global.authenticated">
   <div class="row" data-ng-controller="ContactsController">
@@ -54,7 +58,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="country">Country</label>
             <div class="col-md-4">
-              <select id="country" name="country" class="form-control crs-country" data-region-id="State" data-ng-model="contact.country">
+              <select id="country" name="country" class="form-control crs-country" data-region-id="state" data-ng-model="contact.country">
               </select>
             </div>
           </div>
