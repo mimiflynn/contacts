@@ -1,0 +1,25 @@
+<div class="row" data-ng-controller="ContactsController">
+  <div class="col-md-8" data-ng-init="init()">
+    <h3>{{contact.firstName}} {{contact.lastName}}</h3>
+    <div data-ng-show="contact.address">{{contact.address}}</div>
+    <div data-ng-show="contact.city">{{contact.city}}</div>
+    <div data-ng-show="contact.state">{{contact.state}}</div>
+    <div data-ng-show="contact.country">{{contact.country}}</div>
+    <div>{{contact.phone}}</div>
+    <div>{{contact.email}}</div>
+    <a href="/#!/contact/{{contact._id}}/edit" class="btn btn-large btn-primary glyphicon glyphicon-pencil"> Edit</a>
+    <button class="btn btn-danger glyphicon glyphicon-trash" data-ng-click="remove(contact);"> Delete</button>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Contacts</h3>
+      </div>
+      <div class="panel-body">
+        <ul data-ng-repeat="item in contacts">
+          <li><a href="/#!/contact/{{item._id}}">{{item.firstName}} {{item.lastName}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

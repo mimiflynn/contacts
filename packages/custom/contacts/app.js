@@ -16,14 +16,6 @@ Contacts.register(function (app, auth, database) {
   //We enable routing. By default the Package Object is passed to the routes
   Contacts.routes(app, auth, database);
 
-  //We are adding a link to the main menu for all authenticated users
-  Contacts.menus.add({
-    title: 'contacts example page',
-    link: 'contacts example page',
-    roles: ['authenticated'],
-    menu: 'main'
-  });
-
   Contacts.aggregateAsset('css', 'contacts.css');
 
   Contacts.aggregateAsset('js', '../lib/country-region-selector/source/crs.min.js', {

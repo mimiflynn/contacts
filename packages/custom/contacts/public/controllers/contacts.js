@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mean.contacts')
-  .controller('ContactsController', ['$scope', '$location', '$stateParams', 'Contact',
-    function ($scope, $location, $stateParams, Contact) {
+  .controller('ContactsController', ['$scope', '$location', '$stateParams', 'Contact', 'Global',
+    function ($scope, $location, $stateParams, Contact, Global) {
 
       var getContacts = function () {
         Contact.query(function (contacts) {
@@ -49,6 +49,7 @@ angular.module('mean.contacts')
       };
 
       $scope.submitted = false;
+      $scope.global = Global;
 
       $scope.init = function () {
         $scope.contact = {};
@@ -65,5 +66,18 @@ angular.module('mean.contacts')
           createContact.call(this, contact);
         }
         getContacts();
+      };
+
+      $scope.remove = function (contact) {
+        $scope.contact = contact;
+
+        if (contact) {
+          contact.$remove(function (response) {
+            getContacts();
+          });
+        } else {
+          $scope.contact.$remove();
+        }
+        $location.path('/');
       };
     }]);
