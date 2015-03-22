@@ -1,0 +1,116 @@
+<div class="row" data-ng-controller="ContactsController">
+  <div class="col-md-8">
+    <form class="form-horizontal" name="contactForm" novalidate data-ng-init="init()">
+      <fieldset>
+
+        <legend>Add Contact</legend>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="firstName">First Name * <span class="alert alert-danger" data-ng-show="submitted && contactForm.firstName.$invalid">
+            required
+          </span></label>
+          <div class="col-md-5">
+            <input id="firstName" name="firstName" type="text" placeholder="Jane" class="form-control input-md" required="" data-ng-model="contact.firstName" data-ng-minlength="3">
+            <span class="help-block">Name must be at least 3 characters long</span>  
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="lastName">Last Name * <span class="alert alert-danger" data-ng-show="submitted && contactForm.lastName.$invalid">
+            required
+          </span></label>  
+          <div class="col-md-5">
+            <input id="lastName" name="lastName" type="text" placeholder="Doe" class="form-control input-md" required="" data-ng-model="contact.lastName" data-ng-minlength="3">
+            <span class="help-block">Name must be at least 3 characters long</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="address">Address</label>  
+          <div class="col-md-5">
+            <input id="address" name="address" type="text" placeholder="123 Avenue Street" class="form-control input-md" data-ng-model="contact.address">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="city">City</label>  
+          <div class="col-md-5">
+            <input id="city" name="city" type="text" placeholder="New City" class="form-control input-md" data-ng-model="contact.city">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="state">State / Province</label>
+          <div class="col-md-4">
+            <select id="state" name="state" class="form-control">
+            </select data-ng-model="contact.state">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="country">Country</label>
+          <div class="col-md-4">
+            <select id="country" name="country" class="form-control crs-country" data-region-id="State" data-ng-model="contact.country">
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="postal">Zip / Postal Code</label>  
+          <div class="col-md-4">
+            <input id="postal" name="postal" type="text" placeholder="12345" class="form-control input-md" data-ng-model="contact.zip">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="phone">Phone Number * <span class="alert alert-danger" data-ng-show="submitted && contactForm.phone.$invalid">
+            required
+          </span></label>  
+          <div class="col-md-4">
+            <input id="phone" name="phone" type="text" placeholder="1 321 123 4567" class="form-control input-md" required="" data-ng-model="contact.phone">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="email">Email * <span class="alert alert-danger" data-ng-show="submitted && contactForm.email.$invalid">
+            required
+          </span></label>  
+          <div class="col-md-5">
+            <input id="email" name="email" type="email" placeholder="email@domain.com" class="form-control input-md" required="" data-ng-model="contact.email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="submit">Submit</label>
+          <div class="col-md-4">
+            <button id="submit" name="submit" class="btn btn-primary" data-ng-click="saveContact(contact)" data-ng-disabled="isUnchanged(contact)">Send</button>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2>Contacts</h2>
+      </div>
+      <div class="panel-body">
+        <ul data-ng-repeat="item in contacts">
+          <li><a href="/#!/contact/{{item._id}}/edit">{{item.firstName}} {{item.lastName}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2>Contact</h2>
+      </div>
+      <div class="panel-body">
+        <p><span class="text-muted">Name:</span> {{contact.firstName}} {{contact.lastName}}</p>
+        <p><span class="text-muted">Address:</span> {{contact.address}}</p>
+        <p><span class="text-muted">City:</span> {{contact.city}}</p>
+        <p><span class="text-muted">State:</span> {{contact.state}}</p>
+      </div>
+    </div>
+  </div>
+</div>
