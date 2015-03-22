@@ -47,10 +47,23 @@
     "passport-twitter": "1.0.2",
     "serve-favicon": "2.2.0",
     "swig": "1.4.2",
-    "view-helpers": "0.1.5"
+    "view-helpers": "0.1.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-hook": "~0.3.0",
+    "grunt-concurrent": "^1.0.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-csslint": "^0.3.1",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-env": "^0.4.1",
+    "grunt-nodemon": "^0.3.0",
+    "load-grunt-tasks": "^0.6.0",
+    "time-grunt": "^1.0.0"
   },
   "devDependencies": {
-    "require-dir":"latest",
+    "require-dir": "latest",
     "expect.js": "0.3.1",
     "karma": "0.12.28",
     "karma-chrome-launcher": "0.1.7",
@@ -79,10 +92,10 @@
     "gulp-mocha": "^1.1.0",
     "gulp-nodemon": "^1.0.4",
     "gulp-uglify": "^1.0.1",
-    "gulp-load-plugins": "^0.7.0",
     "gulp-util": "^3.0.1",
     "jshint-stylish": "^1.0.0",
-    "require-dir":"latest",
-    "through": "^2.3.6"
+    "through": "^2.3.6",
+    "grunt-karma": "^0.8.2",
+    "grunt-mocha-test": "^0.10.2"
   }
 }
