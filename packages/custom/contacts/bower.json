@@ -2,6 +2,6 @@
   "name": "contacts",
   "version": "0.0.1",
   "dependencies": {
-    "country-region-selector": "https://github.com/mimiflynn/country-region-selector.git#~0.1.3"
+    "country-region-selector": "https://github.com/mimiflynn/country-region-selector.git#5dccdfbcf1795a095aeabd7f83f2b963c2771f84"
   }
 }
