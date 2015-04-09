@@ -1,0 +1,21 @@
+{
+  "name": "contact-react-backbone",
+  "private": true,
+  "scripts": {
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "concurrent": "^0.3.2",
+    "connect": "^3.3.5",
+    "grunt-browserify": "^3.6.0",
+    "grunt-react": "^0.12.1",
+    "react": "^0.13.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-concurrent": "^1.0.0",
+    "grunt-connect": "^0.2.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
