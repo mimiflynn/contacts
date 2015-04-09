@@ -4,16 +4,18 @@ contacts.ListContacts = Backbone.View.extend({
   collection: new contacts.Contacts(),
 
   initialize: function () {
-    this.collection.fetch();
-    this.render();
+    var _this = this;
+
+    this.collection.fetch({
+      success: _.bind(_this.render, _this)
+    });
   },
 
   render: function () {
-    if (this.collection.length) {
-      console.log('all Contacts', this.collection);
-    }
+    var data = this.collection.at(0).attributes;
+    console.log(data);
 
-    React.render(React.createElement(Card, null), document.getElementById('content'));
+    React.render(React.createElement(Card, data), document.getElementById('content'));
 
     return this;
   }

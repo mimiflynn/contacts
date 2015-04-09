@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'templates/',
         src: ['**/*.jsx'],
-        dest: 'public/scripts/templates',
+        dest: 'public/scripts/templates/',
         ext: '.js'
       }
     },
