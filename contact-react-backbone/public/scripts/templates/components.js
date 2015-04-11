@@ -12,3 +12,22 @@ var Card = React.createClass({displayName: "Card",
     );
   }
 });
+
+var CardList = React.createClass({displayName: "CardList",
+  render: function () {
+    console.log('props', this.props);
+    debugger;
+    var cards = this.props.forEach(function(contact, index) {
+      return (
+        React.createElement(Card, {firstName: contact.firstName, key: index}, 
+          contact
+        )
+      );
+    });
+    return (
+      React.createElement("div", {className: "cardList"}, 
+        cards
+      )
+    );
+  }
+});

@@ -12,11 +12,10 @@ contacts.ListContacts = Backbone.View.extend({
   },
 
   render: function () {
-    var data = this.collection.at(0).attributes;
+    var data = [this.collection.at(0), this.collection.at(1)];
     console.log(data);
-
-    React.render(React.createElement(Card, data), document.getElementById('content'));
-
+    React.render(React.createElement(CardList, data), document.getElementById('content')); 
     return this;
   }
 });
+

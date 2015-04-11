@@ -12,3 +12,24 @@ var Card = React.createClass({
     );
   }
 });
+
+// https://facebook.github.io/react/docs/multiple-components.html
+
+var CardList = React.createClass({
+  render: function () {
+    console.log('props', this.props);
+    
+    var cards = this.props.forEach(function(contact, index) {
+      return (
+        <Card firstName={contact.firstName} key={index}>
+          {contact}
+        </Card>
+      );
+    });
+    return (
+      <div className="cardList">
+        {cards}
+      </div>
+    );
+  }
+});
