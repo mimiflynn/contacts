@@ -30,7 +30,7 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>', 'templates'],
+      files: ['<%= jshint.files %>', 'templates/**/*.jsx'],
       tasks: ['jshint', 'react']
     },
     connect: {

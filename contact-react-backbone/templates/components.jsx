@@ -3,7 +3,7 @@ var Card = React.createClass({
     console.log('card props', this.props);
     return (
       <div className="card">
-        <h2 className="name">{this.props.data.firstName} {this.props.lastName}</h2>
+        <h2 className="name">{this.props.data.firstName} {this.props.data.lastName}</h2>
         <div className="address">{this.props.data.address}</div>
         <div className="city">{this.props.data.city}</div>
         <div className="state">{this.props.data.state}</div>

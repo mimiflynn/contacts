@@ -3,7 +3,7 @@ var Card = React.createClass({displayName: "Card",
     console.log('card props', this.props);
     return (
       React.createElement("div", {className: "card"}, 
-        React.createElement("h2", {className: "name"}, this.props.data.firstName, " ", this.props.lastName), 
+        React.createElement("h2", {className: "name"}, this.props.data.firstName, " ", this.props.data.lastName), 
         React.createElement("div", {className: "address"}, this.props.data.address), 
         React.createElement("div", {className: "city"}, this.props.data.city), 
         React.createElement("div", {className: "state"}, this.props.data.state), 
