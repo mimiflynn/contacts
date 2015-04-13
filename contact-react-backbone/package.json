@@ -1,9 +1,6 @@
 {
   "name": "contact-react-backbone",
   "private": true,
-  "scripts": {
-    "postinstall": "bower install"
-  },
   "dependencies": {
     "backbone": "^1.1.2",
     "browserify": "^9.0.8",
