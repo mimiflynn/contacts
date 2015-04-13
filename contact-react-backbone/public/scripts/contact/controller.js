@@ -18,4 +18,3 @@ contacts.ListContacts = Backbone.View.extend({
     return this;
   }
 });
-
