@@ -6,22 +6,31 @@ module.exports = function (grunt) {
       target: {
         tasks: ['watch', 'connect:server'],
         options: {
-            logConcurrentOutput: true,
-            limit: 5
+          logConcurrentOutput: true,
+          limit: 5
         }
       }
     },
     react: {
       files: {
         expand: true,
-        cwd: 'templates/',
+        cwd: 'source/templates/',
         src: ['*.jsx', '**/*.jsx'],
-        dest: 'public/scripts/templates/',
+        dest: 'source/scripts/templates/',
         ext: '.js'
       }
     },
+    watchify: {
+      options: {
+        debug: true
+      },
+      build: {
+        src: ['./source/scripts/**/*.js'],
+        dest: 'public/js/bundle.js'
+      }
+    },
     jshint: {
-      files: ['Gruntfile.js', 'public/**/*.js', '!public/scripts/lib/**/*.js', '!public/scripts/templates/**/*.js'],
+      files: ['Gruntfile.js', 'source/scripts/**/*.js', '!source/scripts/templates/**/*.js'],
       options: {
         globals: {
           jQuery: true,
@@ -29,9 +38,16 @@ module.exports = function (grunt) {
         }
       }
     },
+    compass: {
+      dist: {
+        options: {
+          config: 'config.rb'
+        }
+      }
+    },
     watch: {
-      files: ['<%= jshint.files %>', 'templates/**/*.jsx'],
-      tasks: ['jshint', 'react']
+      files: ['<%= jshint.files %>', 'templates/**/*.jsx', 'sass/**/*.scss', 'source/scripts/**/*.js'],
+      tasks: ['jshint', 'react', 'compass', 'watchify:build']
     },
     connect: {
       server: {
@@ -46,7 +62,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-react');
-  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-watchify');
+  grunt.loadNpmTasks('grunt-contrib-compass');
 
   grunt.registerTask('test', ['jshint']);
   grunt.registerTask('default', ['concurrent:target']);
