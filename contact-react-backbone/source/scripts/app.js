@@ -8,4 +8,3 @@ $(document).ready(function () {
   'use strict';
   new ListContacts();
 });
-
