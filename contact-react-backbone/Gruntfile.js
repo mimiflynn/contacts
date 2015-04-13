@@ -21,7 +21,7 @@ module.exports = function (grunt) {
       }
     },
     jshint: {
-      files: ['Gruntfile.js', 'public/**/*.js', '!public/scripts/lib/**/*.js'],
+      files: ['Gruntfile.js', 'public/**/*.js', '!public/scripts/lib/**/*.js', '!public/scripts/templates/**/*.js'],
       options: {
         globals: {
           jQuery: true,
@@ -30,7 +30,7 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>', '<%= react.files.src %>'],
+      files: ['<%= jshint.files %>', 'templates'],
       tasks: ['jshint', 'react']
     },
     connect: {

@@ -13,11 +13,13 @@ var Card = React.createClass({displayName: "Card",
   }
 });
 
+// https://facebook.github.io/react/docs/multiple-components.html
+
 var CardList = React.createClass({displayName: "CardList",
   render: function () {
     console.log('props', this.props);
-    debugger;
-    var cards = this.props.forEach(function(contact, index) {
+    
+    var cards = this.props.contacts.forEach(function(contact, index) {
       return (
         React.createElement(Card, {firstName: contact.firstName, key: index}, 
           contact

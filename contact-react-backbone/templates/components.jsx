@@ -19,7 +19,7 @@ var CardList = React.createClass({
   render: function () {
     console.log('props', this.props);
     
-    var cards = this.props.forEach(function(contact, index) {
+    var cards = this.props.contacts.map(function(contact, index) {
       return (
         <Card firstName={contact.firstName} key={index}>
           {contact}
