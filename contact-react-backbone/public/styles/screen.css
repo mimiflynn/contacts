@@ -67,16 +67,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 8, ../../source/sass/screen.scss */
+/* line 1, ../../source/sass/contact/_card.scss */
 .card {
   margin-bottom: 1em;
 }
-/* line 10, ../../source/sass/screen.scss */
+/* line 3, ../../source/sass/contact/_card.scss */
 .card h2 {
   font-weight: bold;
 }
 
-/* line 15, ../../source/sass/screen.scss */
-.cardList {
+/* line 2, ../../source/sass/contact/_cardForm.scss */
+.cardForm input {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+/* line 10, ../../source/sass/screen.scss */
+body {
   margin: 1em;
 }

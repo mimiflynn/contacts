@@ -46,7 +46,7 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>', 'templates/**/*.jsx', 'sass/**/*.scss', 'source/scripts/**/*.js'],
+      files: ['<%= jshint.files %>', 'source/templates/**/*.jsx', 'source/sass/**/*.scss', 'source/scripts/**/*.js'],
       tasks: ['jshint', 'react', 'compass', 'watchify:build']
     },
     connect: {

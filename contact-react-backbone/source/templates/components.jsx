@@ -35,14 +35,17 @@ var CardForm = React.createClass({
   handleSubmit: function (e) {
     e.preventDefault();
     console.log('cardform refs: ', this.refs);
-    var author = React.findDOMNode(this.refs.author).value.trim();
-    var text = React.findDOMNode(this.refs.text).value.trim();
-    if (!text || !author) {
-      return;
-    }
-    this.props.onCardSubmit({author: author, text: text});
-    React.findDOMNode(this.refs.author).value = '';
-    React.findDOMNode(this.refs.text).value = '';
+    var contact = {
+      firstName: React.findDOMNode(this.refs.firstName).value.trim(),
+      lastName: React.findDOMNode(this.refs.lastName).value.trim()
+    };
+    this.onFormSubmit(contact);
+    React.findDOMNode(this.refs.firstName).value = '';
+    React.findDOMNode(this.refs.lastName).value = '';
+  },
+  onFormSubmit: function (data) {
+    var event = new CustomEvent('cardSubmit', {detail: data});
+    React.findDOMNode(this).dispatchEvent(event);
   },
   render: function () {
     return (
@@ -50,7 +53,12 @@ var CardForm = React.createClass({
         <input type="text" placeholder="First" ref="firstName" />
         <input type="text" placeholder="Last" ref="lastName" />
         <input type="text" placeholder="Street Address" ref="address" />
-        <input type="submit" value="Post" />
+        <input type="text" placeholder="City" ref="city" />
+        <input type="text" placeholder="State" ref="state" />
+        <input type="text" placeholder="Zip" ref="zip" />
+        <input type="text" placeholder="Phone" ref="phone" />
+        <input type="text" placeholder="Email" ref="email" />
+        <input type="submit" value="Save" />
       </form>
     );
   }

@@ -22,7 +22,15 @@ module.exports = Backbone.View.extend({
   render: function () {
     var data = {contacts: this.collection.toJSON()};
     React.render(React.createElement(CardList, data), document.getElementById('content'));
-    React.render(React.createElement(CardForm, data), document.getElementById('newCard'));
+    var form = React.render(React.createElement(CardForm, data), document.getElementById('newCard'));
+    React.findDOMNode(form).addEventListener('cardSubmit', this.onCardSubmit);
+
     return this;
+  },
+
+  onCardSubmit: function (e) {
+    // the data is in the detail
+    console.log('onCardSubmit fired: ', e.detail);
   }
+
 });

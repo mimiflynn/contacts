@@ -4,14 +4,9 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import "contact/card";
+@import "contact/cardForm";
 
-.card {
-  margin-bottom: 1em;
-  h2 {
-    font-weight: bold;
-  }
-}
-
-.cardList {
+body {
   margin: 1em;
 }
