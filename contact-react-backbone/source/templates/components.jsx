@@ -57,7 +57,7 @@ var CardForm = React.createClass({
     });
 
     this.onFormSubmit(contact);
-    
+
     React.findDOMNode(this.refs.firstName).value = '';
     React.findDOMNode(this.refs.lastName).value = '';
   },
@@ -76,6 +76,7 @@ var CardForm = React.createClass({
         <input type="text" placeholder="City" ref="city" />
         <input type="text" placeholder="State" ref="state" />
         <input type="text" placeholder="Zip" ref="zip" />
+        <input type="text" placeholder="Country" ref="country" />
         <input type="text" placeholder="Phone" ref="phone" />
         <input type="text" placeholder="Email" ref="email" />
         <input type="submit" value="Save" />
