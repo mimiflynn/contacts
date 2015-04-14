@@ -31,22 +31,42 @@ var CardList = React.createClass({
   }
 });
 
+/* CardForm
+  upon submit will fire a JS CustomEvent() of 'cardSubmit' loaded with data
+  be sure to add an event listener like so:
+
+  React.findDOMNode(form).addEventListener('cardSubmit', callback)
+  var callback = function (e) {
+    // the data is in the detail
+    console.log('cardSubmit fired: ', e.detail);
+  }
+*/
+
 var CardForm = React.createClass({
   handleSubmit: function (e) {
     e.preventDefault();
-    console.log('cardform refs: ', this.refs);
-    var contact = {
-      firstName: React.findDOMNode(this.refs.firstName).value.trim(),
-      lastName: React.findDOMNode(this.refs.lastName).value.trim()
-    };
+
+    var _this = this;
+    var contact = {};
+    var keys = Object.keys(this.refs);
+
+    // build the contact object out of the form data
+    // to send to the app controller
+    keys.forEach(function (e, i, a) {
+      contact[e] = React.findDOMNode(_this.refs[e]).value.trim();
+    });
+
     this.onFormSubmit(contact);
+    
     React.findDOMNode(this.refs.firstName).value = '';
     React.findDOMNode(this.refs.lastName).value = '';
   },
+
   onFormSubmit: function (data) {
-    var event = new CustomEvent('cardSubmit', {detail: data});
+    var event = new CustomEvent('cardSubmit', {detail: data}, false);
     React.findDOMNode(this).dispatchEvent(event);
   },
+
   render: function () {
     return (
       <form className="cardForm" onSubmit={this.handleSubmit}>

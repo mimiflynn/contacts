@@ -15,22 +15,33 @@ module.exports = Backbone.View.extend({
     var _this = this;
 
     this.collection.fetch({
-      success: _.bind(_this.render, _this)
+      success: _.bind(_this.renderList, _this)
     });
+
+    this.listenTo(this.collection, 'add', this.renderList);
+
+    this.render();
   },
 
   render: function () {
-    var data = {contacts: this.collection.toJSON()};
-    React.render(React.createElement(CardList, data), document.getElementById('content'));
-    var form = React.render(React.createElement(CardForm, data), document.getElementById('newCard'));
-    React.findDOMNode(form).addEventListener('cardSubmit', this.onCardSubmit);
+    console.log('render fired');
+
+    this.renderList();
+
+    var form = React.render(React.createElement(CardForm), document.getElementById('newCard'));
+    React.findDOMNode(form).addEventListener('cardSubmit', _.bind(this.onCardSubmit, this));
 
     return this;
   },
 
+  renderList: function () {
+    var data = {contacts: this.collection.toJSON()};
+    React.render(React.createElement(CardList, data), document.getElementById('content'));
+  },
+
   onCardSubmit: function (e) {
-    // the data is in the detail
-    console.log('onCardSubmit fired: ', e.detail);
+    var formData = e.detail;
+    this.collection.add([formData]);
   }
 
 });
