@@ -5,6 +5,7 @@ var _ = require('lodash');
 var React = require('react');
 
 var Collection = require('./collection.js');
+var Model = require('./model.js');
 var CardList = require('../templates/components.js').cardList;
 var CardForm = require('../templates/components.js').cardForm;
 
@@ -41,7 +42,8 @@ module.exports = Backbone.View.extend({
 
   onCardSubmit: function (e) {
     var formData = e.detail;
-    this.collection.add([formData]);
+    var contact = new Model(formData);
+    //contact.save();
+    this.collection.add([contact]);
   }
-
 });

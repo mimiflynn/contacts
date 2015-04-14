@@ -57,7 +57,6 @@ var CardForm = React.createClass({
     });
 
     this.onFormSubmit(contact);
-
     React.findDOMNode(this.refs.firstName).value = '';
     React.findDOMNode(this.refs.lastName).value = '';
   },

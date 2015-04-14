@@ -15,6 +15,8 @@ module.exports = Backbone.Model.extend({
     email: 'name@domainname.com'
   },
 
+  url: 'http://localhost:4000/contact',
+
   initialize: function () {
 
   }
