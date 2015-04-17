@@ -25,8 +25,6 @@ module.exports = Backbone.View.extend({
   },
 
   render: function () {
-    console.log('render fired');
-
     this.renderList();
 
     var form = React.render(React.createElement(CardForm), document.getElementById('newCard'));
@@ -43,7 +41,7 @@ module.exports = Backbone.View.extend({
   onCardSubmit: function (e) {
     var formData = e.detail;
     var contact = new Model(formData);
-    //contact.save();
+    contact.save();
     this.collection.add([contact]);
   }
 });
