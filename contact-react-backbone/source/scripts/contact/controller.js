@@ -39,9 +39,17 @@ module.exports = Backbone.View.extend({
   },
 
   onCardSubmit: function (e) {
+    var _this = this;
     var formData = e.detail;
     var contact = new Model(formData);
-    contact.save();
-    this.collection.add([contact]);
+    contact.save(null, {
+      success: function (model, repsonse) {
+        _this.collection.add([contact]);
+      },
+      error:  function (model, repsonse) {
+        console.log('error');
+      }
+    });
+    
   }
 });
