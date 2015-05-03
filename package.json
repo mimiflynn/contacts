@@ -1,7 +1,7 @@
 {
   "name": "mean",
   "description": "MEAN.io: A fullstack JavaScript framework powered by MongoDB, ExpressJS, AngularJS, NodeJS.",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "private": false,
   "author": "Linnovate <mean@linnovate.net>",
   "contributors": "https://github.com/linnovate/mean/graphs/contributors",
@@ -19,7 +19,7 @@
     "mocha": "node node_modules/.bin/mocha packages/**/server/tests/**/*.js -R spec -r tools/test/mocha-req.js",
     "karma": "node node_modules/karma/bin/karma start karma.conf.js",
     "test": "npm run mocha && NODE_ENV=test npm run start & sleep 20 && npm run karma",
-    "postinstall": "node node_modules/meanio/node_modules/mean-cli/bin/mean-postinstall"
+    "postinstall": "node node_modules/meanio/scripts/postinstall.js"
   },
   "dependencies": {
     "assetmanager": "1.1.2",
@@ -47,23 +47,9 @@
     "passport-twitter": "1.0.2",
     "serve-favicon": "2.2.0",
     "swig": "1.4.2",
-    "view-helpers": "0.1.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-hook": "~0.3.0",
-    "grunt-concurrent": "^1.0.0",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-csslint": "^0.3.1",
-    "grunt-contrib-cssmin": "^0.10.0",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-uglify": "^0.5.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-env": "^0.4.1",
-    "grunt-nodemon": "^0.3.0",
-    "load-grunt-tasks": "^0.6.0",
-    "time-grunt": "^1.0.0"
+    "view-helpers": "0.1.5"
   },
   "devDependencies": {
-    "require-dir": "latest",
     "expect.js": "0.3.1",
     "karma": "0.12.28",
     "karma-chrome-launcher": "0.1.7",
@@ -94,8 +80,7 @@
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.1",
     "jshint-stylish": "^1.0.0",
-    "through": "^2.3.6",
-    "grunt-karma": "^0.8.2",
-    "grunt-mocha-test": "^0.10.2"
+    "require-dir":"latest",
+    "through": "^2.3.6"
   }
 }
