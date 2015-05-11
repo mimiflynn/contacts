@@ -23,3 +23,7 @@ Run `npm install` from this directory and then `grunt` to fire up a server. This
 Attempting to make the components independent of the framework, so, in this case, no Backbone code in the components.
 
 This will allow the components to work on their own and can be available to teams needing the component's functionality but using a framework that better suites their needs.
+
+## To Do
+- refactor to a Flux like organizational structure
+- add CRS

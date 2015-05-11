@@ -6,8 +6,8 @@ var React = require('react');
 
 var Collection = require('./collection.js');
 var Model = require('./model.js');
-var CardList = require('../templates/components.js').cardList;
-var CardForm = require('../templates/components.js').cardForm;
+var CardList = require('./components/components.js').cardList;
+var CardForm = require('./components/components.js').cardForm;
 
 module.exports = Backbone.View.extend({
   collection: new Collection(),
