@@ -44439,11 +44439,11 @@ module.exports = React.createClass({displayName: "exports",
   render: function () {
     var cards = this.props.contacts.map(function (contact, index) {
       return (
-        React.createElement(Card, {data: contact, key: index})
+        React.createElement("li", null, React.createElement(Card, {data: contact, key: index}))
       );
     });
     return (
-      React.createElement("div", {className: "cardList"}, 
+      React.createElement("ul", {className: "cardList"}, 
         cards
       )
     );

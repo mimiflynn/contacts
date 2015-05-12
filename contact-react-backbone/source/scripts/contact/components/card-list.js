@@ -5,13 +5,13 @@ module.exports = React.createClass({
   render: function () {
     var cards = this.props.contacts.map(function (contact, index) {
       return (
-        <Card data={contact} key={index}/>
+        <li><Card data={contact} key={index}/></li>
       );
     });
     return (
-      <div className="cardList">
+      <ul className="cardList">
         {cards}
-      </div>
+      </ul>
     );
   }
 });
