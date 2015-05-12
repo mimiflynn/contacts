@@ -44402,9 +44402,9 @@ module.exports = React.createClass({displayName: "exports",
 
     this.onFormSubmit(contact);
     
-    // To Do: clear whole form
-    React.findDOMNode(this.refs.firstName).value = '';
-    React.findDOMNode(this.refs.lastName).value = '';
+    keys.forEach(function (e, i, a) {
+      React.findDOMNode(_this.refs[e]).value = '';
+    });
   },
 
   onFormSubmit: function (data) {
@@ -44502,7 +44502,10 @@ module.exports = Backbone.View.extend({
 
     this.collection.fetch({
       success: _.bind(_this.renderList, _this)
-    });
+    }).then(function () {
+        console.log('fetch ran');
+      }
+    );
 
     this.listenTo(this.collection, 'add', this.renderList);
 
@@ -44534,8 +44537,9 @@ module.exports = Backbone.View.extend({
       error:  function (model, repsonse) {
         console.log('error');
       }
+    }).always(function () {
+      console.log('save ran');
     });
-    
   }
 });
 

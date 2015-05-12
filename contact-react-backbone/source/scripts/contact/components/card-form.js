@@ -27,9 +27,9 @@ module.exports = React.createClass({
 
     this.onFormSubmit(contact);
     
-    // To Do: clear whole form
-    React.findDOMNode(this.refs.firstName).value = '';
-    React.findDOMNode(this.refs.lastName).value = '';
+    keys.forEach(function (e, i, a) {
+      React.findDOMNode(_this.refs[e]).value = '';
+    });
   },
 
   onFormSubmit: function (data) {

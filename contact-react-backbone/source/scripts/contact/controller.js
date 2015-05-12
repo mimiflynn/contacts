@@ -17,7 +17,10 @@ module.exports = Backbone.View.extend({
 
     this.collection.fetch({
       success: _.bind(_this.renderList, _this)
-    });
+    }).then(function () {
+        console.log('fetch ran');
+      }
+    );
 
     this.listenTo(this.collection, 'add', this.renderList);
 
@@ -49,7 +52,8 @@ module.exports = Backbone.View.extend({
       error:  function (model, repsonse) {
         console.log('error');
       }
+    }).always(function () {
+      console.log('save ran');
     });
-    
   }
 });
