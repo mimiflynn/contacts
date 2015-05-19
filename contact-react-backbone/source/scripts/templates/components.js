@@ -19,8 +19,7 @@ var CardList = React.createClass({displayName: "CardList",
   render: function () {
     var cards = this.props.contacts.map(function (contact, index) {
       return (
-        React.createElement(Card, {data: contact, key: index}
-        )
+        React.createElement(Card, {data: contact, key: index})
       );
     });
     return (
