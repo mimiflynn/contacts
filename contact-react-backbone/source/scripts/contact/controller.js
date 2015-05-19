@@ -6,8 +6,8 @@ var React = require('react');
 
 var Collection = require('./collection.js');
 var Model = require('./model.js');
-var CardList = require('../templates/components.js').cardList;
-var CardForm = require('../templates/components.js').cardForm;
+var CardList = require('./components/components.js').cardList;
+var CardForm = require('./components/components.js').cardForm;
 
 module.exports = Backbone.View.extend({
   collection: new Collection(),
@@ -17,7 +17,10 @@ module.exports = Backbone.View.extend({
 
     this.collection.fetch({
       success: _.bind(_this.renderList, _this)
-    });
+    }).then(function () {
+        console.log('fetch ran');
+      }
+    );
 
     this.listenTo(this.collection, 'add', this.renderList);
 
@@ -49,7 +52,8 @@ module.exports = Backbone.View.extend({
       error:  function (model, repsonse) {
         console.log('error');
       }
+    }).always(function () {
+      console.log('save ran');
     });
-    
   }
 });
