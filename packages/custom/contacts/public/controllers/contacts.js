@@ -4,8 +4,6 @@ angular.module('mean.contacts')
   .controller('ContactsController', ['$scope', '$location', '$stateParams', 'Contact', 'Global',
     function ($scope, $location, $stateParams, Contact, Global) {
 
-      var crs = new Crs();
-
       var getContacts = function () {
         Contact.query(function (contacts) {
           $scope.contacts = contacts;
@@ -13,11 +11,11 @@ angular.module('mean.contacts')
       };
 
       var setState = function () {
-        $('#state').val($scope.contact.state);
+        //$('#state').val($scope.contact.state);
       };
 
       var setCountry = function () {
-        $('#country').val($scope.contact.country).trigger('change');
+        //$('#country').val($scope.contact.country).trigger('change');
         setTimeout(setState, 500);
       };
 
@@ -64,7 +62,7 @@ angular.module('mean.contacts')
       $scope.global = Global;
 
       $scope.init = function () {
-        crs.init();
+//
         $scope.contact = {};
         getContacts();
         if ($stateParams.contactId) {

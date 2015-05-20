@@ -7,7 +7,7 @@ module.exports = function (Contacts, app, auth) {
 
   app.route('/contact')
     .get(contacts.all)
-    .post(auth.requiresLogin, contacts.create);
+    .post(contacts.create);
 
   app.route('/contact/:contactId')
     .get(auth.isMongoId, auth.requiresLogin, contacts.show)

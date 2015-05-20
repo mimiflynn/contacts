@@ -55,6 +55,7 @@ node_modules/
 # --------------------
 .bower-*/
 bower_components
+lib
 
 # --------------------
 # App Files
