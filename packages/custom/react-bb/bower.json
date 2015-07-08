@@ -1,0 +1,7 @@
+{
+  "name": "react-bb",
+  "version": "0.0.1",
+  "dependencies": {
+  	"country-region-selector": "https://github.com/benkeen/country-region-selector.git"
+  }
+}
